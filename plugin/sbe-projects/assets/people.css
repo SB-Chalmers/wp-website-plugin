@@ -1,0 +1,111 @@
+/* People block */
+.sbe-people__heading {
+	margin-bottom: var(--wp--preset--spacing--40);
+}
+.sbe-people__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: var(--wp--preset--spacing--50) var(--wp--preset--spacing--40);
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+/* People involved: 30px above, also where the template has no 30px block gap (Single Resource). */
+.sbe-people.sbe-people--tagged {
+	margin-top: var(--wp--preset--spacing--40);
+}
+.sbe-people--all .sbe-people__list {
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+/* Contact persons (Contact page): smaller photos, fixed-width columns from the left. */
+.sbe-people--contact {
+	margin-top: var(--wp--preset--spacing--50);
+}
+.sbe-people--contact .sbe-people__list {
+	grid-template-columns: repeat(auto-fill, 140px);
+	gap: var(--wp--preset--spacing--40);
+}
+.sbe-person {
+	margin: 0;
+}
+.sbe-person a {
+	color: inherit;
+	text-decoration: none;
+}
+.sbe-person a:hover .sbe-person__name,
+.sbe-person__name a:hover,
+.sbe-person__name a:focus {
+	text-decoration: underline;
+}
+.sbe-person__photo {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1;
+	object-fit: cover;
+	margin-bottom: var(--wp--preset--spacing--20);
+}
+.sbe-person__photo--empty {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--wp--preset--color--accent-5, #eee);
+	color: var(--wp--preset--color--contrast, #111);
+	font-size: var(--wp--preset--font-size--x-large);
+	letter-spacing: 0.05em;
+	opacity: 0.6;
+}
+/* Sections where nobody has a photo: compact list of names */
+.sbe-people__list--compact {
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+	gap: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
+}
+.sbe-person p {
+	margin: 0;
+}
+.sbe-person__name {
+	font-weight: 600;
+}
+.sbe-person__role {
+	font-size: var(--wp--preset--font-size--small);
+}
+.sbe-person__interests {
+	margin-top: var(--wp--preset--spacing--20);
+	font-size: var(--wp--preset--font-size--small);
+}
+.sbe-person__interests p:last-child {
+	opacity: 0.8;
+}
+.sbe-person__interests-title {
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	margin-bottom: 0.2em !important;
+}
+
+/* Staff page sections */
+.sbe-people__group + .sbe-people__group {
+	margin-top: var(--wp--preset--spacing--60);
+}
+.sbe-people__group-heading {
+	font-size: var(--wp--preset--font-size--x-large);
+	margin: 0 0 var(--wp--preset--spacing--40);
+}
+
+/* Read more links */
+.sbe-read-more__heading {
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+.sbe-read-more__list {
+	margin: 0;
+	padding-left: 1.2em;
+}
+.sbe-read-more__list li + li {
+	margin-top: 0.4em;
+}
+
+/* Hovering the photo underlines the name (photo and name are separate links). */
+.sbe-person:has(> a:hover) .sbe-person__name a {
+	text-decoration: underline;
+}

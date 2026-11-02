@@ -1,0 +1,121 @@
+/* Resource icon (Resources gallery) */
+.sbe-resource-icon {
+	margin: 0 0 var(--wp--preset--spacing--30); /* left-aligned, like the other galleries */
+	width: 100%;
+	max-width: 180px;
+}
+.sbe-resource-icon a {
+	display: block;
+	color: inherit;
+	text-decoration: none;
+}
+.sbe-resource-icon__frame {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	width: 100%;
+	aspect-ratio: 1;
+	padding: 18%;
+	overflow: hidden;
+	border-radius: 16px;
+	background: color-mix(in srgb, currentColor 6%, transparent);
+}
+.sbe-resource-icon__img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+.sbe-resource-icon__placeholder {
+	/* Background and letter colour are set inline per resource (includes/resources.php). */
+	font-size: var(--wp--preset--font-size--x-large, 2rem);
+	font-weight: 600;
+	letter-spacing: 0.02em;
+}
+/* Hovering the icon or the name zooms the icon/initials slightly inside the fixed frame and underlines the name. */
+.sbe-resource-icon__img,
+.sbe-resource-icon__letters {
+	display: block;
+	transition: transform 0.4s ease;
+}
+.sbe-resource-icon a:hover :is(.sbe-resource-icon__img, .sbe-resource-icon__letters),
+.sbe-resource-card:has(.wp-block-post-title a:hover) :is(.sbe-resource-icon__img, .sbe-resource-icon__letters) {
+	transform: scale(1.05);
+}
+@media (prefers-reduced-motion: reduce) {
+	.sbe-resource-icon__img,
+	.sbe-resource-icon__letters {
+		transition: none;
+	}
+}
+/* Hovering the icon underlines the name. */
+.sbe-resource-card:has(.sbe-resource-icon a:hover) .wp-block-post-title a {
+	text-decoration: underline;
+}
+
+/* Resource name and tags centred under its icon: same max width as the icon (180px). */
+.sbe-resource-card .wp-block-post-title,
+.sbe-resource-card .sbe-card-tags {
+	max-width: 180px;
+	margin-left: 0;
+	margin-right: 0;
+	text-align: center;
+}
+
+/* Resources grid: fixed 180px columns (icon width) spread across the full width, so the
+   first icon lines up with the left edge and the last with the right edge. Overrides the
+   Post Template's grid columns (columnCount 4 / min 200px); the column gap is at least the
+   block gap (spacing|50) and grows to fill the row. Incomplete last rows stay in the
+   columns above. */
+.wp-block-post-template.is-layout-grid:has(.sbe-resource-card) {
+	grid-template-columns: repeat(auto-fill, 180px);
+	justify-content: space-between;
+}
+
+/* Only one column fits (narrower than 2 x 180px + 30px gap): centre it. Container query
+   on the Query block, so it follows the actual gallery width. */
+.wp-block-query:has(.sbe-resource-card) {
+	container-type: inline-size;
+}
+@container (max-width: 389px) {
+	.wp-block-post-template.is-layout-grid:has(.sbe-resource-card) {
+		justify-content: center;
+	}
+}
+
+/* Repository link (Single Resource): "Go to resource →" button. Doubled class so the margin
+   beats the layout's default 1.2rem block gap (`:root :where(.is-layout-constrained) > *`). */
+.sbe-repo-link.sbe-repo-link {
+	margin-top: var(--wp--preset--spacing--40);
+}
+/* Coloured button with rounded corners (since 1.22.1, was an underlined text link). */
+.sbe-repo-link a {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	padding: 0.8em 1.6em;
+	border-radius: 12px;
+	background-color: #3443c4;
+	color: #fff;
+	font-size: var(--wp--preset--font-size--large);
+	font-weight: 600;
+	line-height: 1.2;
+	text-decoration: none;
+	transition: background-color 0.15s ease;
+}
+.sbe-repo-link a:hover {
+	background-color: #15224d;
+	color: #fff;
+}
+.sbe-repo-link a:focus-visible {
+	outline: 2px solid #15224d;
+	outline-offset: 3px;
+}
+.sbe-repo-link__arrow {
+	display: inline-block;
+	transition: transform 0.15s ease;
+}
+.sbe-repo-link a:hover .sbe-repo-link__arrow {
+	transform: translateX(3px);
+}

@@ -1,0 +1,94 @@
+/*
+Theme Name: SBE Theme
+Theme URI: https://github.com/SB-Chalmers/wp-website-plugin
+Description: Child theme of Twenty Twenty-Five with the design of the Sustainable Built Environments website (sb.chalmers.se): full-width layout, Manrope, sticky header, rounded gallery cards, responsive galleries. Use together with the SBE Projects plugin.
+Author: Sustainable Built Environments, Chalmers
+Template: twentytwentyfive
+Version: 1.0.0
+Tested up to: 7.1
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: sbe-theme
+*/
+
+/*
+ * Site-wide CSS. On sb.chalmers.se these rules live in Site Editor -> Styles -> Additional CSS;
+ * here they ship with the theme. Each block is commented so it can be removed on its own.
+ */
+.wp-block-post-template .wp-block-post-title{font-weight:400;}
+
+/* Sticky header */
+.wp-site-blocks > header.wp-block-template-part{position:sticky;top:0;z-index:100;}
+@media (min-width:601px){.admin-bar .wp-site-blocks > header.wp-block-template-part{top:var(--wp-admin--admin-bar--height,32px);}}
+
+/* Pagination: arrows at the sides, page numbers centred */
+.wp-block-query-pagination{display:grid !important;grid-template-columns:1fr auto 1fr;align-items:center;}
+.wp-block-query-pagination > .wp-block-query-pagination-previous{grid-column:1;justify-self:start;}
+.wp-block-query-pagination > .wp-block-query-pagination-numbers{grid-column:2;justify-self:center;}
+.wp-block-query-pagination > .wp-block-query-pagination-next{grid-column:3;justify-self:end;}
+.wp-block-query-pagination-previous-arrow,.wp-block-query-pagination-next-arrow{font-size:1.5em;margin:0;}
+.wp-block-query-pagination-previous,.wp-block-query-pagination-next{text-decoration:none;}
+.wp-block-query-pagination-numbers{display:flex;gap:0.9em;font-size:var(--wp--preset--font-size--small);}
+.wp-block-query-pagination .is-disabled{color:#b0b0b0;cursor:default;}
+
+/* Page numbers: black, no underline; current page bold with a thin line; hover dark grey */
+.wp-block-query-pagination .page-numbers{color:#000;text-decoration:none;}
+.wp-block-query-pagination .page-numbers.current{font-weight:700;border-bottom:1.5px solid currentColor;padding-bottom:1px;}
+.wp-block-query-pagination a.page-numbers:hover,.wp-block-query-pagination a.wp-block-query-pagination-previous:hover,.wp-block-query-pagination a.wp-block-query-pagination-next:hover{color:#555;}
+
+/* Readable text width on pages: body text max 760px, left-aligned (matches the Intro groups) */
+body.page .wp-block-post-content > :is(p, ul, ol, blockquote, h2, h3, h4, h5, h6):not(.alignwide):not(.alignfull){max-width:760px;margin-left:0 !important;margin-right:auto !important;}
+
+/* Footer at the bottom of the window on short pages: page fills at least the viewport, the content area grows to fill the gap */
+.wp-site-blocks{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;}
+.admin-bar .wp-site-blocks{min-height:calc(100vh - var(--wp-admin--admin-bar--height,32px));min-height:calc(100dvh - var(--wp-admin--admin-bar--height,32px));}
+.wp-site-blocks > :not(header):not(footer){flex-grow:1;}
+
+/* GALLERY HOVER (start) - hovering a gallery image underlines its title. Delete this block to remove. */
+.wp-block-post-template > li:has(.wp-block-post-featured-image a:hover) .wp-block-post-title a{text-decoration:underline;}
+
+/* GALLERY HOVER (end) */
+
+/* GALLERY CORNERS + ZOOM (start) - gallery picture corners (--sbe-gallery-radius: 12px rounded, 0px = square); on hover (picture or title) the picture zooms in slightly inside a fixed frame. Delete this block to remove. */
+.wp-block-query .wp-block-post-featured-image{--sbe-gallery-radius:12px;border-radius:var(--sbe-gallery-radius);overflow:hidden;}
+.wp-block-query .wp-block-post-featured-image :is(img,.sbe-featured-placeholder__box){border-radius:var(--sbe-gallery-radius);transition:transform .4s ease;}
+.wp-block-query .wp-block-post-featured-image a:hover :is(img,.sbe-featured-placeholder__box),.wp-block-post-template > li:has(.wp-block-post-title a:hover) .wp-block-post-featured-image :is(img,.sbe-featured-placeholder__box){transform:scale(1.05);}
+@media (prefers-reduced-motion:reduce){.wp-block-query .wp-block-post-featured-image :is(img,.sbe-featured-placeholder__box){transition:none;}}
+
+/* GALLERY CORNERS + ZOOM (end) */
+
+/* Space between a gallery heading (h2/h3, or a heading row with "View all") and its gallery: 30px (spacing|40) instead of the 1.2rem block gap. Same as the People page sections. */
+.wp-block-post-content > :is(h2, h3, .wp-block-group:has(> .wp-block-heading)) + .wp-block-query{margin-top:var(--wp--preset--spacing--40);}
+
+/* Jump links on the Projects page ([sbe_project_jump_links]) + anchors not hidden under the sticky header */
+.sbe-jump-links{font-size:var(--wp--preset--font-size--small);margin-top:0;margin-bottom:var(--wp--preset--spacing--40);}
+.sbe-jump-links a{color:inherit;text-underline-offset:0.2em;}
+.sbe-jump-links a:hover{color:#555;}
+.sbe-jump-links__sep{margin:0 0.4em;}
+:where(h2,h3)[id]{scroll-margin-top:calc(var(--wp-admin--admin-bar--height,0px) + 140px);}
+
+/* In-place page changes (Query Loop "Reload full page" off) focus the first card; keep it clear of the sticky header */
+.wp-block-query .wp-block-post-template a{scroll-margin-top:calc(var(--wp-admin--admin-bar--height,0px) + 120px);}
+
+/* News + Projects galleries (class "sbe-gallery"): columns by screen width. 1 on phones, 2 on tablets, 3 on laptops (incl. 14"/16" MacBook Pro), 4 on large monitors. Max 3 in the editor. */
+.sbe-gallery .wp-block-post-template.is-layout-grid{grid-template-columns:1fr !important;}
+@media (min-width:700px){.sbe-gallery .wp-block-post-template.is-layout-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}}
+@media (min-width:1100px){.sbe-gallery .wp-block-post-template.is-layout-grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important;}}
+@media (min-width:1800px){.sbe-gallery .wp-block-post-template.is-layout-grid{grid-template-columns:repeat(4,minmax(0,1fr)) !important;}}
+
+/* Grid galleries (News, Projects, Resources): tighter space between rows. Row gap 30px (spacing|40, was the Post Template block gap spacing|50 = 30-50px) + the card's own 30px bottom padding. Side-scrolling galleries are unaffected. */
+.wp-block-query .wp-block-post-template.is-layout-grid{row-gap:var(--wp--preset--spacing--40);}
+
+/* Menu: underline the current section (current page, or its listing page when reading a post/project/resource) */
+.wp-block-navigation :is(.current-menu-item,.sbe-current-section) > a{text-decoration:underline;text-underline-offset:0.35em;text-decoration-thickness:1.5px;}
+
+/* HOME HERO (start) - Home: the intro text sits on the faded lower part of the hero picture (screens 1000px+). Needs the "Hero" group (class "sbe-hero") around the featured image + Intro on the Home page. To undo: remove the class "sbe-hero" from the Hero group (Block > Advanced > Additional CSS class) - picture and text then stack as before - or delete this block. */
+@media (min-width: 1000px){
+.sbe-hero.sbe-hero{display:grid;grid-template-columns:minmax(0,1fr);}
+.sbe-hero > *{grid-area:1/1;}
+.sbe-hero > .wp-block-post-featured-image{position:relative;margin-block:0 !important;}
+.sbe-hero > .wp-block-post-featured-image::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top, var(--wp--preset--color--base) 0%, color-mix(in srgb, var(--wp--preset--color--base) 88%, transparent) 30%, color-mix(in srgb, var(--wp--preset--color--base) 15%, transparent) 75%), linear-gradient(to right, color-mix(in srgb, var(--wp--preset--color--base) 55%, transparent) 0%, transparent 70%);}
+.sbe-hero > .sbe-intro{align-self:end;justify-self:stretch;position:relative;z-index:1;margin:0 !important;}
+}
+
+/* HOME HERO (end) */

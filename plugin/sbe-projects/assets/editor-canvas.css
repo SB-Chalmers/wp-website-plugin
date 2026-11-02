@@ -1,0 +1,30 @@
+/*
+ * Editor canvas only (post, project and resource editor with "Show template" on).
+ * Related content: assets/live-preview.js puts the cards the site would show for the
+ * current tags in .sbe-related-live. When there are none (no tags yet, or nothing else
+ * with those tags) the site hides the whole section; here a note says what will appear.
+ */
+.editor-styles-wrapper .sbe-related-content .wp-block-query:not(.sbe-related-live .wp-block-query) {
+	display: none; /* Only outside the live preview (would just be the latest posts). */
+}
+.editor-styles-wrapper .sbe-related-content:not(:has(.sbe-related-live.has-items))::after {
+	content: "Nothing related yet. News, projects and resources with the same tags will be shown here; without any, this section is left out on the site.";
+	display: block;
+	box-sizing: border-box;
+	max-width: 760px;
+	margin: 0 auto;
+	padding: 16px;
+	border: 1px dashed currentColor;
+	opacity: 0.6;
+	font-size: 0.875rem;
+}
+
+/*
+ * Second title while empty (assets/editor-hints.js, since 1.25.0): a grey line pointing
+ * to the Add content sidebar, at the size of the heading but lighter.
+ */
+.editor-styles-wrapper .sbe-editor-hint {
+	opacity: 0.45;
+	font-style: italic;
+	font-weight: 400;
+}

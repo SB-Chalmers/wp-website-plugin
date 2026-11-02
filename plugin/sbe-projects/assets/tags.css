@@ -1,0 +1,55 @@
+/* Tags as links (includes/tag-filter.php), on every page. */
+
+/* Under gallery titles: small grey text that looks exactly like the grey type line in Related
+   content / search ("Project · Ongoing", .sbe-result-type): 13px (a little smaller than the type line's Small,
+   14px) and the body's light weight 300 (the blocks are set to 400 in the page/template markup, overridden here). Always
+   underlined (thin, light grey line) so they read as links; hover = black text and line.
+   The tag that is filtering the gallery (or the tag of a tag page) is black. */
+.wp-block-post-terms.sbe-card-tags.sbe-card-tags {
+	font-weight: 300 !important; /* Beats the inline font-weight:400 on the blocks. */
+	font-size: 0.8125rem !important; /* 13px, a step below Small (14px); beats .has-small-font-size. */
+}
+.wp-block-post-terms.sbe-card-tags a {
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.2em;
+	text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+}
+.wp-block-post-terms.sbe-card-tags a:hover,
+.wp-block-post-terms.sbe-card-tags a:focus-visible {
+	color: var(--wp--preset--color--contrast);
+	text-decoration-color: currentColor;
+}
+.wp-block-post-terms.sbe-card-tags a.is-current {
+	color: var(--wp--preset--color--contrast);
+}
+
+/* On single posts, projects and resources, just before Related content: "Tags: LCA · Digital tools". */
+.wp-block-post-terms.sbe-single-tags .wp-block-post-terms__prefix {
+	color: var(--wp--preset--color--accent-4);
+}
+.wp-block-post-terms.sbe-single-tags .wp-block-post-terms__separator {
+	color: var(--wp--preset--color--accent-4);
+}
+.wp-block-post-terms.sbe-single-tags a {
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.2em;
+}
+.wp-block-post-terms.sbe-single-tags a:hover,
+.wp-block-post-terms.sbe-single-tags a:focus-visible {
+	color: #555;
+}
+
+/* Spacing: more room above the tags line (≈50px, spacing|60, instead of the 30px block gap), and
+   less below it down to "Related content" (≈40px instead of ≈70px): the 760px column's bottom
+   padding shrinks to 20px (spacing|30) when the tags line is its last block. Pages without tags
+   keep the normal padding. */
+.wp-block-post-terms.sbe-single-tags.sbe-single-tags {
+	margin-block-start: var(--wp--preset--spacing--60);
+}
+.wp-block-group.alignfull:has(> .sbe-single-tags:last-child) {
+	padding-bottom: var(--wp--preset--spacing--30) !important; /* Beats the template's inline padding. */
+}

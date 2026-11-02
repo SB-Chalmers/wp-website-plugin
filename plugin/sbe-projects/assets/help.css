@@ -1,0 +1,114 @@
+/* Help page (Dashboard → Help) and the "How to add content" editor sidebar. includes/help.php */
+
+.sbe-help {
+	max-width: 820px;
+	font-size: 14px;
+	line-height: 1.6;
+	color: #1e1e1e;
+}
+.sbe-help-wrap .sbe-help {
+	margin-top: 24px;
+	padding: 8px 32px 24px;
+	background: #fff;
+	border: 1px solid #dcdcde;
+}
+.sbe-help h1 {
+	font-size: 26px;
+	line-height: 1.25;
+	margin: 20px 0 6px;
+}
+.sbe-help h2 {
+	font-size: 19px;
+	margin: 28px 0 8px;
+	padding-top: 14px;
+	border-top: 1px solid #dcdcde;
+}
+.sbe-help h3 {
+	font-size: 15px;
+	margin: 20px 0 6px;
+}
+.sbe-help p,
+.sbe-help li {
+	font-size: inherit;
+	line-height: inherit;
+}
+.sbe-help ul,
+.sbe-help ol {
+	margin: 6px 0 10px;
+	padding-left: 22px;
+}
+.sbe-help ul {
+	list-style: disc;
+}
+.sbe-help ul ul {
+	list-style: circle;
+}
+.sbe-help ol {
+	list-style: decimal;
+}
+.sbe-help li {
+	margin: 3px 0;
+}
+.sbe-help code {
+	font-size: 0.9em;
+	padding: 1px 4px;
+	background: #f0f0f1;
+	border-radius: 2px;
+}
+.sbe-help blockquote {
+	margin: 10px 0;
+	padding: 4px 14px;
+	border-left: 3px solid #dcdcde;
+	color: #50575e;
+}
+.sbe-help-table {
+	overflow-x: auto;
+	margin: 10px 0 14px;
+}
+.sbe-help table {
+	border-collapse: collapse;
+	width: 100%;
+	font-size: 13px;
+}
+.sbe-help th,
+.sbe-help td {
+	text-align: left;
+	vertical-align: top;
+	padding: 6px 10px 6px 0;
+	border-bottom: 1px solid #e0e0e0;
+}
+.sbe-help th {
+	border-bottom-color: #1e1e1e;
+}
+.sbe-help-source {
+	margin-top: 28px;
+	color: #757575;
+	font-size: 12px !important;
+}
+
+/* Editor sidebar: narrower, smaller */
+.sbe-help--sidebar {
+	padding: 4px 16px 24px;
+	font-size: 13px;
+	line-height: 1.5;
+}
+.sbe-help--sidebar h1 {
+	font-size: 18px;
+	margin-top: 8px;
+}
+.sbe-help--sidebar h2 {
+	font-size: 15px;
+	margin-top: 20px;
+	padding-top: 10px;
+}
+.sbe-help--sidebar ul,
+.sbe-help--sidebar ol {
+	padding-left: 16px;
+}
+.sbe-help--sidebar table {
+	font-size: 12px;
+}
+.sbe-help-links {
+	margin: 8px 0 0;
+	font-size: 12px;
+}

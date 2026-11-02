@@ -1,0 +1,111 @@
+/* Side-scrolling galleries: Query Loop with class "sbe-carousel" (see includes/carousel.php). */
+.sbe-carousel .wp-block-post-template {
+	--sbe-carousel-gap: var(--wp--preset--spacing--50);
+	display: flex !important;
+	flex-wrap: nowrap;
+	gap: var(--sbe-carousel-gap) !important;
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	scrollbar-width: none; /* arrows + swipe instead of a scrollbar */
+	margin: 0;
+	padding: 0;
+}
+.sbe-carousel .wp-block-post-template::-webkit-scrollbar {
+	display: none;
+}
+/* Cards visible = same column counts as the News/Projects grids (Additional CSS, class
+   "sbe-gallery"), plus a slice of the next card so it's clear there is more:
+   1 + slice below 700px, 2 + slice from 700px, 3 + slice from 1100px, 4 + slice from 1800px. */
+.sbe-carousel .wp-block-post-template > li {
+	flex: 0 0 80%;
+	width: auto !important;
+	margin: 0 !important;
+	scroll-snap-align: start;
+}
+@media (min-width: 700px) {
+	.sbe-carousel .wp-block-post-template > li {
+		flex-basis: calc((100% - 2 * var(--sbe-carousel-gap)) / 2.25);
+	}
+}
+@media (min-width: 1100px) {
+	.sbe-carousel .wp-block-post-template > li {
+		flex-basis: calc((100% - 3 * var(--sbe-carousel-gap)) / 3.25);
+	}
+}
+@media (min-width: 1800px) {
+	.sbe-carousel .wp-block-post-template > li {
+		flex-basis: calc((100% - 4 * var(--sbe-carousel-gap)) / 4.25);
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.sbe-carousel .wp-block-post-template {
+		scroll-behavior: auto;
+	}
+}
+
+/* Phones only: Query Loop with class "sbe-carousel-mobile" (grid on larger screens, no arrows). */
+@media (max-width: 600px) {
+	.sbe-carousel-mobile .wp-block-post-template {
+		display: flex !important;
+		flex-wrap: nowrap;
+		gap: var(--wp--preset--spacing--50) !important;
+		overflow-x: auto;
+		overscroll-behavior-x: contain;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+		margin: 0;
+		padding: 0;
+	}
+	.sbe-carousel-mobile .wp-block-post-template::-webkit-scrollbar {
+		display: none;
+	}
+	.sbe-carousel-mobile .wp-block-post-template > li {
+		flex: 0 0 80%;
+		width: auto !important;
+		margin: 0 !important;
+		scroll-snap-align: start;
+	}
+}
+
+/* Arrow buttons, added by carousel.js under the gallery: ← left, → right (like the page-number arrows). */
+.sbe-carousel-arrows {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+/* Arrows close under the cards: the cards end with 30px bottom padding and the Query Loop adds
+   its block gap (≈19px), so pull the arrows up to sit ≈10px below the last text line.
+   The bottom margin keeps the space before the next section about as before.
+   Doubled selector beats the layout's `:root :where(.is-layout-flow) > *` margin. */
+.wp-block-query.sbe-carousel > .sbe-carousel-arrows {
+	margin-block-start: -20px;
+	margin-block-end: var(--wp--preset--spacing--40);
+}
+.sbe-carousel-arrow {
+	appearance: none;
+	background: none;
+	border: 0;
+	padding: 0 0.1em;
+	margin: 0;
+	font: inherit;
+	font-size: 1.5em;
+	line-height: 1;
+	color: #000;
+	cursor: pointer;
+}
+.sbe-carousel-arrow:hover {
+	color: #555;
+}
+.sbe-carousel-arrow:disabled {
+	color: #b0b0b0;
+	cursor: default;
+}
+.sbe-carousel-arrow:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+.sbe-carousel-arrows[hidden] {
+	display: none;
+}

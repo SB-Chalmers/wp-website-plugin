@@ -1,0 +1,84 @@
+/* Filter rows: the tag filter above the News, Projects and Resources galleries (Query Loop class
+   "sbe-tag-filter", includes/tag-filter.php) and the type row on search results and tag pages
+   (includes/search.php). (The class names come from the old News category filter, removed in 1.18.0.) */
+.sbe-category-filter__nav {
+	margin: 0 0 var(--wp--preset--spacing--40);
+}
+.sbe-category-filter__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4em 1.5em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+/* Same look as the menu and page numbers: black, no underline; current = thin line under it. */
+.sbe-category-filter__list a {
+	color: inherit;
+	text-decoration: none;
+}
+.sbe-category-filter__list a:hover,
+.sbe-category-filter__list a:focus-visible {
+	color: #555;
+}
+.sbe-category-filter__list a.is-active {
+	text-decoration: underline;
+	text-decoration-thickness: 1.5px;
+	text-underline-offset: 0.35em;
+}
+
+/* Tag filter: grey "Tags" label, then All + the most used tags; the rest is folded away behind
+   "More tags (n)" (assets/tag-filter.js toggles .is-expanded; without JS a <noscript> style shows all). */
+.sbe-tag-filter__label {
+	color: var(--wp--preset--color--accent-4);
+	margin-right: -0.5em; /* Sits a little closer to "All" than the tags sit to each other. */
+}
+.sbe-tag-filter__list .is-extra {
+	display: none;
+}
+.sbe-tag-filter__nav.is-expanded .is-extra {
+	display: block;
+}
+.sbe-tag-filter__toggle {
+	padding: 0;
+	border: 0;
+	background: none;
+	font: inherit;
+	color: var(--wp--preset--color--accent-4);
+	cursor: pointer;
+}
+.sbe-tag-filter__toggle:hover,
+.sbe-tag-filter__toggle:focus-visible {
+	color: var(--wp--preset--color--contrast);
+}
+.sbe-tag-filter__nav.is-expanded .sbe-tag-filter__toggle-item {
+	order: 1; /* "Fewer tags" after the last tag. */
+}
+
+/* "Related content" at the bottom of posts and projects (see includes/related.php). */
+.sbe-related-content > .wp-block-heading + .wp-block-query {
+	margin-top: var(--wp--preset--spacing--40);
+}
+
+/* Related content is secondary: it sits in the same centred 760px column as the page and uses
+   smaller cards than the Home galleries (about half the width): 3 cards + a slice of the 4th
+   in the column, 20px gap; 2 + a slice on phones. Overrides assets/carousel.css. */
+.sbe-carousel.sbe-related .wp-block-post-template {
+	--sbe-carousel-gap: var(--wp--preset--spacing--30);
+}
+.sbe-carousel.sbe-related .wp-block-post-template > li {
+	flex-basis: calc((100% - 3 * var(--sbe-carousel-gap)) / 3.25);
+}
+@media (max-width: 600px) {
+	.sbe-carousel.sbe-related .wp-block-post-template > li {
+		flex-basis: calc((100% - 2 * var(--sbe-carousel-gap)) / 2.25);
+	}
+}
+
+/* 40px (2.5rem, same as under page titles) between the tag row and the gallery below it (News,
+   Resources) or the "Ongoing projects" heading (Projects, where the row comes from [sbe_tag_filter]
+   in the page content). Doubled class: the layout's own "margin-block-end: 0" would otherwise win
+   and leave only the ≈19px block gap. */
+.sbe-tag-filter__nav.sbe-tag-filter__nav {
+	margin-block-end: 2.5rem;
+}

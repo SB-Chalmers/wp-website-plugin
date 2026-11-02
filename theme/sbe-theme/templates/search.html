@@ -1,0 +1,37 @@
+<!-- wp:template-part {"slug":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group"><!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:query-title {"type":"search","level":1,"align":"wide"} /-->
+
+<!-- wp:search {"label":"Search news, projects and resources","showLabel":false,"placeholder":"Search","width":100,"widthUnit":"%","buttonText":"→","align":"wide","className":"sbe-search-page-form","style":{"spacing":{"margin":{"top":"2.5rem"}}}} /-->
+
+<!-- wp:query {"queryId":90,"query":{"perPage":24,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"metadata":{"name":"Search results"},"align":"wide","className":"sbe-gallery sbe-search-results","style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
+<div class="wp-block-query alignwide sbe-gallery sbe-search-results" style="margin-top:var(--wp--preset--spacing--40)"><!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"grid","columnCount":3}} -->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"30px","left":"0"}}},"layout":{"inherit":false}} -->
+<div class="wp-block-group" style="padding-top:0;padding-right:0;padding-bottom:30px;padding-left:0"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","sizeSlug":"full"} /-->
+
+<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
+
+<!-- wp:post-terms {"term":"post_tag","separator":" · ","className":"sbe-card-tags","style":{"typography":{"fontWeight":"400"},"spacing":{"margin":{"top":"0.25rem"}}},"textColor":"accent-4","fontSize":"small"} /--></div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+
+<!-- wp:query-pagination {"paginationArrow":"arrow","showLabel":false,"layout":{"type":"flex","justifyContent":"space-between"}} -->
+<!-- wp:query-pagination-previous /-->
+
+<!-- wp:query-pagination-numbers /-->
+
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination -->
+
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>Nothing found. Try other words, or browse <a href="/posts/">News</a>, <a href="/projects/">Projects</a> and <a href="/resources/">Resources</a>.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results --></div>
+<!-- /wp:query --></div>
+<!-- /wp:group --></main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->

@@ -1,0 +1,33 @@
+/* Placeholder picture for gallery cards without a featured image
+   (includes/placeholders.php). Light box only behind a resource icon;
+   otherwise coloured (background + letter colour inline, .--colored). */
+.sbe-featured-placeholder a {
+	display: block;
+	text-decoration: none;
+}
+.sbe-featured-placeholder__box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	background: var(--wp--preset--color--accent-5, #eee);
+	color: var(--wp--preset--color--contrast, #111);
+	font-size: var(--wp--preset--font-size--xx-large, 2.5rem);
+	letter-spacing: 0.05em;
+}
+.sbe-featured-placeholder__box > span {
+	opacity: 0.6;
+}
+/* Resource cards (Related content, search results): the resource's gallery icon in the box. */
+.sbe-featured-placeholder__icon {
+	display: block;
+	width: auto;
+	height: 56%;
+	max-width: 56%;
+	object-fit: contain;
+}
+/* No picture or icon: coloured box (colour inline), letters at full strength. */
+.sbe-featured-placeholder--colored .sbe-featured-placeholder__box > span {
+	opacity: 1;
+	font-weight: 600;
+}

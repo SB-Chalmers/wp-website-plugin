@@ -1,0 +1,73 @@
+<!-- wp:group {"metadata":{"name":"Intro"},"align":"wide","style":{"spacing":{"padding":{"top":"0","bottom":"var:preset|spacing|30"}}},"layout":{"type":"constrained","justifyContent":"left","contentSize":"760px"}} -->
+<div class="wp-block-group alignwide" style="padding-top:0;padding-bottom:var(--wp--preset--spacing--30)"><!-- wp:paragraph {"fontSize":"medium"} -->
+<p class="has-medium-font-size">A short introduction to the research projects of your group. Replace this text.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:shortcode -->
+[sbe_project_jump_links]
+<!-- /wp:shortcode -->
+
+<!-- wp:shortcode -->
+[sbe_tag_filter type="project"]
+<!-- /wp:shortcode -->
+
+<!-- wp:heading {"level":3,"align":"wide","fontSize":"x-large"} -->
+<h3 class="wp-block-heading alignwide has-x-large-font-size" id="ongoing-projects">Ongoing projects</h3>
+<!-- /wp:heading -->
+
+<!-- wp:query {"queryId":40,"query":{"perPage":12,"pages":0,"offset":0,"postType":"project","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":{"include":{"project_status":[__SBE_ONGOING__]}},"excludeCurrent":null},"metadata":{"name":"Ongoing projects"},"enhancedPagination":true,"align":"wide","className":"sbe-gallery sbe-tag-filter"} -->
+<div class="wp-block-query alignwide sbe-gallery sbe-tag-filter"><!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"grid","columnCount":3}} -->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"30px","left":"0"}}},"layout":{"inherit":false}} -->
+<div class="wp-block-group" style="padding-top:0;padding-right:0;padding-bottom:30px;padding-left:0"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","sizeSlug":"full"} /-->
+
+<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
+
+<!-- wp:post-terms {"term":"post_tag","separator":" · ","className":"sbe-card-tags","style":{"typography":{"fontWeight":"400"},"spacing":{"margin":{"top":"0.25rem"}}},"textColor":"accent-4","fontSize":"small"} /--></div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+
+<!-- wp:query-pagination {"paginationArrow":"arrow","showLabel":false,"layout":{"type":"flex","justifyContent":"space-between"}} -->
+<!-- wp:query-pagination-previous /-->
+
+<!-- wp:query-pagination-numbers /-->
+
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination -->
+
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>No ongoing projects right now.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results --></div>
+<!-- /wp:query -->
+
+<!-- wp:heading {"level":3,"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|70"}}},"fontSize":"x-large"} -->
+<h3 class="wp-block-heading alignwide has-x-large-font-size" id="completed-projects" style="margin-top:var(--wp--preset--spacing--70)">Completed projects</h3>
+<!-- /wp:heading -->
+
+<!-- wp:query {"queryId":41,"query":{"perPage":12,"pages":0,"offset":0,"postType":"project","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":{"include":{"project_status":[__SBE_COMPLETED__]}},"excludeCurrent":null},"metadata":{"name":"Completed projects"},"enhancedPagination":true,"align":"wide","className":"sbe-gallery sbe-tag-filter"} -->
+<div class="wp-block-query alignwide sbe-gallery sbe-tag-filter"><!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"grid","columnCount":3}} -->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"30px","left":"0"}}},"layout":{"inherit":false}} -->
+<div class="wp-block-group" style="padding-top:0;padding-right:0;padding-bottom:30px;padding-left:0"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","sizeSlug":"full"} /-->
+
+<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
+
+<!-- wp:post-terms {"term":"post_tag","separator":" · ","className":"sbe-card-tags","style":{"typography":{"fontWeight":"400"},"spacing":{"margin":{"top":"0.25rem"}}},"textColor":"accent-4","fontSize":"small"} /--></div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+
+<!-- wp:query-pagination {"paginationArrow":"arrow","showLabel":false,"layout":{"type":"flex","justifyContent":"space-between"}} -->
+<!-- wp:query-pagination-previous /-->
+
+<!-- wp:query-pagination-numbers /-->
+
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination -->
+
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>No completed projects yet.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results --></div>
+<!-- /wp:query -->

@@ -1,0 +1,47 @@
+/* Simple editor (includes/editor-simple.php, assets/editor-simple.js). Admin screen only. */
+
+/* Top bar: hide WordPress's Settings button and Jetpack's sidebar; give "Add content" a text label. */
+body.sbe-simple-editor .interface-pinned-items button[aria-controls="edit-post:document"],
+body.sbe-simple-editor .interface-pinned-items button[aria-controls="jetpack-sidebar:jetpack"],
+body.sbe-simple-editor .interface-pinned-items button[aria-controls="edit-post:block"] {
+	display: none;
+}
+body.sbe-simple-editor .interface-pinned-items button[aria-controls="sbe-add-content:add-content"] {
+	width: auto;
+	padding: 0 12px 0 8px;
+	gap: 4px;
+}
+body.sbe-simple-editor .interface-pinned-items button[aria-controls="sbe-add-content:add-content"]::after {
+	content: "Add content";
+	font-weight: 500;
+	white-space: nowrap;
+}
+
+/* Sidebar */
+.sbe-simple-intro {
+	padding: 16px;
+	border-bottom: 1px solid #e0e0e0;
+	font-size: 13px;
+	line-height: 1.5;
+}
+.sbe-simple-intro p {
+	margin: 0;
+}
+.sbe-simple-intro p + p {
+	margin-top: 8px;
+}
+.sbe-simple-help {
+	margin-top: 0;
+	color: #757575;
+	font-size: 12px;
+}
+.sbe-simple-image {
+	background: #f0f6fc;
+}
+/* Categories and project statuses are set up by the site's administrators. */
+.sbe-simple-tax--category .editor-post-taxonomies__hierarchical-terms-add,
+.sbe-simple-tax--project_status .editor-post-taxonomies__hierarchical-terms-add,
+.sbe-simple-tax--category .editor-post-taxonomies__hierarchical-terms-filter,
+.sbe-simple-tax--project_status .editor-post-taxonomies__hierarchical-terms-filter {
+	display: none;
+}

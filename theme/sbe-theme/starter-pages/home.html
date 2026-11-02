@@ -1,0 +1,65 @@
+<!-- wp:group {"metadata":{"name":"Hero"},"align":"full","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull"><!-- wp:post-featured-image {"align":"full"} /-->
+
+<!-- wp:group {"metadata":{"name":"Intro"},"align":"wide","className":"sbe-intro","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|30"}},"layout":{"type":"constrained","contentSize":"900px","justifyContent":"left"}} -->
+<div class="wp-block-group alignwide sbe-intro" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--50)"><!-- wp:paragraph {"style":{"typography":{"fontWeight":"400","lineHeight":"1.5"}},"fontSize":"large"} -->
+<p class="has-large-font-size" style="font-weight:400;line-height:1.5">One or two sentences about what your research group does. Replace this text.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><a href="/staff/">Meet the people →</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"metadata":{"name":"News heading"},"align":"wide","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"bottom"}} -->
+<div class="wp-block-group alignwide"><!-- wp:heading {"level":3,"fontSize":"x-large"} -->
+<h3 class="wp-block-heading has-x-large-font-size">News</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><a href="/posts/">View all news →</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:query {"queryId":20,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false,"excludeCurrent":null},"metadata":{"categories":["posts"],"patternName":"core/query-grid-posts","name":"News"},"align":"wide","className":"sbe-carousel"} -->
+<div class="wp-block-query alignwide sbe-carousel"><!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"grid","columnCount":3}} -->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"30px","left":"0"}}},"layout":{"inherit":false}} -->
+<div class="wp-block-group" style="padding-top:0;padding-right:0;padding-bottom:30px;padding-left:0"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","sizeSlug":"full"} /-->
+
+<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
+
+<!-- wp:post-date {"metadata":{"bindings":{"datetime":{"source":"core/post-data","args":{"field":"date"}}}},"style":{"spacing":{"margin":{"top":"0.25rem"}}}} /-->
+
+<!-- wp:post-terms {"term":"post_tag","separator":" · ","className":"sbe-card-tags","style":{"typography":{"fontWeight":"400"},"spacing":{"margin":{"top":"0.25rem"}}},"textColor":"accent-4","fontSize":"small"} /--></div>
+<!-- /wp:group -->
+<!-- /wp:post-template --></div>
+<!-- /wp:query -->
+
+<!-- wp:group {"metadata":{"name":"Ongoing projects heading"},"align":"wide","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"bottom"}} -->
+<div class="wp-block-group alignwide"><!-- wp:heading {"level":3,"fontSize":"x-large"} -->
+<h3 class="wp-block-heading has-x-large-font-size">Ongoing projects</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><a href="/projects/">View all projects →</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:query {"queryId":21,"query":{"perPage":9,"pages":0,"offset":0,"postType":"project","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":{"include":{"project_status":[__SBE_ONGOING__]}},"excludeCurrent":null},"metadata":{"name":"Ongoing projects"},"align":"wide","className":"sbe-carousel"} -->
+<div class="wp-block-query alignwide sbe-carousel"><!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"grid","columnCount":3}} -->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"30px","left":"0"}}},"layout":{"inherit":false}} -->
+<div class="wp-block-group" style="padding-top:0;padding-right:0;padding-bottom:30px;padding-left:0"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","sizeSlug":"full"} /-->
+
+<!-- wp:post-title {"isLink":true,"fontSize":"medium"} /-->
+
+<!-- wp:post-terms {"term":"post_tag","separator":" · ","className":"sbe-card-tags","style":{"typography":{"fontWeight":"400"},"spacing":{"margin":{"top":"0.25rem"}}},"textColor":"accent-4","fontSize":"small"} /--></div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+
+<!-- wp:query-no-results -->
+<!-- wp:paragraph -->
+<p>No ongoing projects right now.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results --></div>
+<!-- /wp:query -->

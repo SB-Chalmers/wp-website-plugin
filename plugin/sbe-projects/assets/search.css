@@ -1,0 +1,169 @@
+/* Site search (see includes/search.php and assets/search.js). */
+
+/* "Search" in the menu is underlined while the panel is open (like the current page). */
+.wp-block-navigation .sbe-search-toggle--open > a {
+	text-decoration: underline;
+	text-underline-offset: 0.35em;
+	text-decoration-thickness: 1.5px;
+}
+/* ...and the current page's underline is hidden meanwhile, so only one item is marked. */
+.sbe-search-open .wp-block-navigation :is(.current-menu-item, .sbe-current-section):not(.sbe-search-toggle--open) > a {
+	text-decoration: none;
+}
+
+/* Panel: covers the page below the sticky header (top set by search.js), white. */
+.sbe-search-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 99; /* Header is 100. */
+	overflow-y: auto;
+	background: var(--wp--preset--color--base, #fff);
+	color: var(--wp--preset--color--contrast, #000);
+	padding: clamp(3rem, 14vh, 9rem) var(--wp--style--root--padding-right, 1.5rem) 3rem var(--wp--style--root--padding-left, 1.5rem);
+}
+.sbe-search-overlay[hidden] {
+	display: none;
+}
+.sbe-search-open {
+	overflow: hidden; /* No page scrolling behind the panel. */
+}
+/* "Close" (top right), only when the menu is a hamburger (phones, or a collapsed menu; see menu-fit.js). */
+.sbe-search-overlay__close {
+	display: none;
+	position: absolute;
+	top: 1rem;
+	right: var(--wp--style--root--padding-right, 1.5rem);
+	background: none;
+	border: 0;
+	padding: 0.3em 0;
+	color: inherit;
+	font-family: inherit;
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+	cursor: pointer;
+}
+.sbe-search-overlay__close:hover {
+	color: #555;
+}
+@media (max-width: 599px) {
+	.sbe-search-overlay__close {
+		display: block;
+	}
+}
+.sbe-menu-collapsed .sbe-search-overlay__close {
+	display: block;
+}
+.sbe-search-overlay__form {
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+/* One large field with a black line under it and an arrow at the right end. */
+.sbe-search-overlay__field,
+.sbe-search-page-form .wp-block-search__inside-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	border: 0;
+	border-bottom: 1.5px solid currentColor;
+	border-radius: 0;
+	padding: 0;
+}
+.sbe-search-overlay__input,
+.sbe-search-page-form .wp-block-search__input {
+	flex: 1;
+	min-width: 0;
+	border: 0;
+	border-radius: 0;
+	padding: 0.2em 0;
+	background: none;
+	color: inherit;
+	font-family: inherit;
+	font-weight: 400;
+	line-height: 1.3;
+	outline: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+/* Same type as the page titles (h1): bold, Extra Extra Large, tight letter spacing. */
+.sbe-search-overlay__input {
+	font-size: var(--wp--preset--font-size--xx-large);
+	font-weight: 700;
+	letter-spacing: -0.1px;
+	line-height: 1.125;
+}
+.sbe-search-overlay__input::placeholder,
+.sbe-search-page-form .wp-block-search__input::placeholder {
+	color: inherit;
+	opacity: 0.85;
+}
+/* Hide the browser's own clear (×) button. */
+.sbe-search-overlay__input::-webkit-search-cancel-button,
+.sbe-search-page-form .wp-block-search__input::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+}
+.sbe-search-overlay__submit,
+.sbe-search-page-form .wp-block-search__button {
+	flex: none;
+	background: none;
+	border: 0;
+	border-radius: 0;
+	margin: 0;
+	padding: 0.2em 0 0.2em 0.5em;
+	color: inherit;
+	font-size: 1.5rem;
+	line-height: 1;
+	cursor: pointer;
+	box-shadow: none;
+}
+.sbe-search-overlay__submit span {
+	display: inline-block;
+	transition: transform 0.2s;
+}
+.sbe-search-overlay__submit:hover,
+.sbe-search-page-form .wp-block-search__button:hover {
+	color: #555;
+	background: none;
+}
+.sbe-search-overlay__submit:hover span {
+	transform: translateX(3px);
+}
+/* Keyboard focus: a visible ring only when using the keyboard. */
+.sbe-search-overlay__form:has(input:focus-visible) .sbe-search-overlay__field,
+.sbe-search-page-form:has(input:focus-visible) .wp-block-search__inside-wrapper {
+	border-bottom-width: 2px;
+}
+.sbe-search-overlay__hint {
+	margin: 0.9rem 0 0;
+	color: var(--wp--preset--color--accent-4);
+	font-size: var(--wp--preset--font-size--small);
+}
+@media (prefers-reduced-motion: reduce) {
+	.sbe-search-overlay__submit span {
+		transition: none;
+	}
+}
+
+/* Results page: the same field, smaller, left-aligned, max 760px (like body text on pages). */
+.sbe-search-page-form {
+	max-width: 760px;
+	margin-left: 0 !important;
+}
+.sbe-search-page-form .wp-block-search__input {
+	font-size: var(--wp--preset--font-size--x-large);
+}
+
+/* Count after each filter link: grey. */
+.sbe-search-filter__count {
+	color: var(--wp--preset--color--accent-4);
+}
+
+/* "Project · Ongoing" / "Interview · 3 March 2025" under each result title (same look as dates). */
+.sbe-result-type {
+	margin-top: 0.25rem;
+	color: var(--wp--preset--color--accent-4);
+	font-size: var(--wp--preset--font-size--small);
+}

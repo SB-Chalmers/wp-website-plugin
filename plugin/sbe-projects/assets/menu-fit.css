@@ -1,0 +1,8 @@
+/* Header menu → hamburger whenever it doesn't fit on one row (class set by assets/menu-fit.js).
+   Core only switches below 600px; this does the same at any width. */
+.sbe-menu-collapsed header .wp-block-navigation__responsive-container-open:not(.always-shown) {
+	display: flex;
+}
+.sbe-menu-collapsed header .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+	display: none;
+}

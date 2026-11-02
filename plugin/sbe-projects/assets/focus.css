@@ -1,0 +1,8 @@
+/* Focus rings only for keyboard users.
+   The theme (Twenty Twenty-Five style.css) outlines every focused element with
+   `:where(.wp-site-blocks *:focus)`, so tapping or clicking a link (People, Resources,
+   the site title on phones…) left a black box around it. Keep the ring when the browser
+   says focus should be visible (Tab key), hide it after a mouse click or tap. */
+.wp-site-blocks :focus:not(:focus-visible) {
+	outline: none;
+}

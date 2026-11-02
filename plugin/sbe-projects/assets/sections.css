@@ -1,0 +1,79 @@
+/* SBE sections (block patterns): key facts box and publications list.
+   Square corners, like the rest of the site. */
+
+/* Key facts: light grey box, compact lines. */
+.sbe-facts {
+	background: #f3f3f3;
+	padding: var(--wp--preset--spacing--30, 20px) var(--wp--preset--spacing--40, 30px);
+}
+.sbe-facts > * {
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
+.sbe-facts > * + * {
+	margin-block-start: 0.4em;
+}
+.sbe-facts strong {
+	font-weight: 600;
+}
+
+/* Publications: no bullets, linked title with the details in grey below. */
+.sbe-publications {
+	list-style: none;
+	padding-left: 0;
+	color: var(--wp--preset--color--accent-4, #686868);
+}
+.sbe-publications > li + li {
+	margin-block-start: 0.9em;
+}
+.sbe-publications a {
+	color: var(--wp--preset--color--contrast, #111);
+}
+.sbe-publications a:hover {
+	color: #555;
+}
+
+/* Publications section (block sbe/publications, since 1.26.0): heading like the
+   Read more / People involved headings, list styled by .sbe-publications above.
+   Doubled class: 30px above even in templates without a 30px block gap (resources). */
+.sbe-publications-section.sbe-publications-section {
+	margin-block-start: var(--wp--preset--spacing--40);
+}
+.sbe-publications-section .sbe-publications__heading {
+	margin-block-end: var(--wp--preset--spacing--30);
+}
+.sbe-publications-section .sbe-publications {
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
+.sbe-publications__title {
+	color: var(--wp--preset--color--contrast, #111);
+}
+
+/* Read more links (pattern for posts): same look as the project block
+   sbe/read-more (styles also in people.css, repeated here so the pattern
+   looks right on posts and in the editor). */
+.sbe-read-more .sbe-read-more__heading {
+	margin-block-end: var(--wp--preset--spacing--30);
+}
+.sbe-read-more .sbe-read-more__list {
+	margin-block-start: 0;
+	padding-left: 1.2em;
+}
+.sbe-read-more .sbe-read-more__list li + li {
+	margin-top: 0.4em;
+}
+
+/* Section headings in the body of posts, projects and resources, one size
+   step below the theme default (since 1.19.1): h2 Extra Large → Large,
+   h3 Large → Medium. Only inside the post content, so page titles, gallery
+   headings, "Related content", People involved and the project Read more
+   block keep their sizes. The Read more links pattern heading is excluded
+   so it still matches the project block. Headings with their own font size
+   (has-*-font-size) are unaffected. Also applied in the block editor. */
+:is(body.single .wp-block-post-content, .editor-styles-wrapper .is-root-container) h2.wp-block-heading:not([class*="-font-size"]) {
+	font-size: var(--wp--preset--font-size--large);
+}
+:is(body.single .wp-block-post-content, .editor-styles-wrapper .is-root-container) h3.wp-block-heading:not([class*="-font-size"]):not(.sbe-read-more__heading) {
+	font-size: var(--wp--preset--font-size--medium);
+}
